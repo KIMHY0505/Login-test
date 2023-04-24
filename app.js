@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-const home = require("./index");
+const home = require("./src/index");
 
 const PORT = 3000;
 
