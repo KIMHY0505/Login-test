@@ -18,5 +18,14 @@ function login() {
     body: JSON.stringify(req),
   })
     .then((e) => e.json())
-    .then(console.log);
+    .then((e) => {
+      if (e.success) {
+        location.href = "/";
+      } else {
+        alert(e.msg);
+      }
+    })
+    .catch((err) => {
+      console.error("Error: Can not Trying login");
+    });
 }
