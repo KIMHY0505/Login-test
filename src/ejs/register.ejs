@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+  </head>
+  <body>
+    <div class="signup-form-container">
+      <form class="signup-form">
+        <h2>Sign Up</h2>
+        <div class="input-field">
+          <input type="text" id="username" name="username" required="off" />
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field">
+          <input type="email" id="email" name="email" required />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="password" name="password" required />
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+        <button type="submit">Sign Up</button>
+        <p class="signin-link">
+          Already have an account? <a href="/login">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
