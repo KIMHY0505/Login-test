@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/js/login.js" defer></script>
-    <title>Document</title>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <script src="./js/login.js"></script>
   </head>
   <body>
-    <input type="text" placeholder="ID" id="ID" /><br />
-    <input type="password" placeholder="PASSWORD" id="PW" /><br />
-    <button type="submit" id="btn" onclick="login()">Login</button>
+    <div class="login-form-container">
+      <form class="login-form">
+        <h2>Login</h2>
+        <div class="input-field">
+          <input type="text" id="ID" name="ID" required="off" />
+          <label for="ID">ID</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="PW" name="password" />
+          <label for="password">Password</label>
+        </div>
+        <button type="submit" id="btn" onclick="login()">Login</button>
+        <p class="signup-link">
+          Don't have an account? <a href="/register">Sign up</a>
+        </p>
+      </form>
+    </div>
   </body>
 </html>
