@@ -61,7 +61,7 @@ body {
   color: #333;
 }
 
-button[type="submit"] {
+button[type="button"] {
   display: block;
   width: 100%;
   padding: 16px;
@@ -75,7 +75,7 @@ button[type="submit"] {
   transition: 0.2s ease-out;
 }
 
-button[type="submit"]:hover {
+button[type="button"]:hover {
   background-color: #006799;
 }
 

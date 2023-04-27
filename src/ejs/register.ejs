@@ -3,33 +3,34 @@
   <head>
     <title>Sign Up Form</title>
     <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <script src="./js/register.js"></script>
   </head>
   <body>
     <div class="signup-form-container">
       <form class="signup-form">
         <h2>Sign Up</h2>
         <div class="input-field">
-          <input type="text" id="username" name="username" required="off" />
-          <label for="username">Username</label>
+          <input type="text" id="name" name="name" required="off" />
+          <label for="name">Name</label>
         </div>
         <div class="input-field">
-          <input type="email" id="email" name="email" required />
-          <label for="email">Email</label>
+          <input type="text" id="ID" name="ID" required="off" />
+          <label for="ID">ID</label>
         </div>
         <div class="input-field">
-          <input type="password" id="password" name="password" required />
-          <label for="password">Password</label>
+          <input type="password" id="PW" name="PW" required />
+          <label for="PW">Password</label>
         </div>
         <div class="input-field">
           <input
             type="password"
-            id="confirm-password"
-            name="confirm-password"
-            required
+            id="confirm-PW"
+            name="confirm-PW"
+            required="off"
           />
           <label for="confirm-password">Confirm Password</label>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="button" onclick="register()">Sign Up</button>
         <p class="signin-link">
           Already have an account? <a href="/login">Sign in</a>
         </p>

@@ -8,16 +8,23 @@ class Users {
   }
 
   login() {
-    const body = this.body;
-    const { id, pw } = UserStorage.getUsersInfo(body.id);
+    const client = this.body;
+    const { id, pw } = UserStorage.getUsersInfo(client.id);
 
     if (id) {
-      if (id === body.id && pw === body.pw) {
+      if (id === client.id && pw === client.pw) {
         return { success: true };
       }
       return { success: false, msg: "Password is not wrong" };
     }
     return { success: false, msg: "ID is not wrong" };
+  }
+
+  register() {
+    const client = this.body;
+    const response = UserStorage.save(client);
+
+    return response;
   }
 }
 
