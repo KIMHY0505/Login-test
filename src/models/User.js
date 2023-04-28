@@ -13,18 +13,22 @@ class Users {
 
     if (id) {
       if (id === client.id && pw === client.pw) {
-        return { success: true };
+        return { success: true, msg: "Member registration success!!" };
       }
       return { success: false, msg: "Password is not wrong" };
     }
     return { success: false, msg: "ID is not wrong" };
   }
 
-  register() {
-    const client = this.body;
-    const response = UserStorage.save(client);
+  async register() {
+    try {
+      const client = this.body;
+      const response = await UserStorage.save(client);
 
-    return response;
+      return response;
+    } catch (err) {
+      return { success: false, msg: err };
+    }
   }
 }
 

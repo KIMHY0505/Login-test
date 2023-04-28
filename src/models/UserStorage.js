@@ -14,8 +14,9 @@ class UserStorage {
     return userInfo;
   }
 
-  static getUsers(...content) {
-    // const users = this.#users;
+  static #getUsers(data, isAll, content) {
+    const users = JSON.parse(data);
+    if (isAll) return users;
     const newUsers = content.reduce((newUsers, content) => {
       if (users.hasOwnProperty(content)) {
         newUsers[content] = users[content];
@@ -25,6 +26,16 @@ class UserStorage {
     return newUsers;
   }
 
+  static getUsers(isAll, ...content) {
+    return fs
+      .readFile("./src/databases/data.json")
+      .then((data) => {
+        return this.#getUsers(data, isAll, content);
+      })
+      .catch(console.error);
+    // const users = this.#users;
+  }
+
   static getUsersInfo(id) {
     return fs
       .readFile("./src/databases/data.json")
@@ -32,14 +43,21 @@ class UserStorage {
         return this.#getUserInfo(data, id);
       })
       .catch(console.error);
-    return;
   }
 
-  static save(userInfo) {
-    /* this.#users.id.push(userInfo.id);
-    this.#users.pw.push(userInfo.pw);
-    this.#users.name.push(userInfo.name);
-    return { success: true }; */
+  static async save(userInfo) {
+    const data = await this.getUsers(true);
+    if (data.id.includes(userInfo.id)) {
+      throw "This is duplicated id";
+    }
+
+    data.id.push(userInfo.id);
+    data.pw.push(userInfo.pw);
+    data.name.push(userInfo.name);
+
+    fs.writeFile("./src/databases/data.json", JSON.stringify(data));
+
+    return { success: true };
   }
 }
 
